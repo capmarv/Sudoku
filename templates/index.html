@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title> sudoku solves </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1> welcome to sudoku solves.</h1>
+
+<!--forms need action and method -->
+<form action="/solve" method="POST">
+<div class="board">
+    {% for row in range(9) %}
+        {% for col in range(9) %}
+            <input type="text" 
+            maxlength="1" 
+            name="cell_{{ row }}_{{ col }}"
+            class="cell 
+            {% if col % 3 == 0 %} block-left {% endif %}
+            {% if row % 3 == 0 %} block-top {% endif %}">
+        {% endfor %}
+    {% endfor %}
+</div>
+
+    <button type="submit">solve</button>
+
+</form>
+
+</body>
+</html>
