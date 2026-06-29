@@ -63,9 +63,11 @@ def solve_board():
             current_row.append(value)
             
         grid.append(current_row)
+    print("I AM USING THE NEW APP.PY")
 
     if solve(grid):
-        return str(grid)
+        print(grid)
+        return render_template("index.html", grid=grid)
     else:
         return "No solution exists"
 

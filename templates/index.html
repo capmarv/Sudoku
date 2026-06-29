@@ -12,18 +12,22 @@
 <div class="board">
     {% for row in range(9) %}
         {% for col in range(9) %}
-            <input type="text" 
-            maxlength="1" 
-            name="cell_{{ row }}_{{ col }}"
-            class="cell 
-            {% if col % 3 == 0 %} block-left {% endif %}
-            {% if row % 3 == 0 %} block-top {% endif %}">
+            <input
+                type="text"
+                maxlength="1"
+                name="cell_{{ row }}_{{ col }}"
+                value="{% if grid and grid[row][col] != 0 %}{{ grid[row][col] }}{% endif %}"
+                class="cell
+                {% if col % 3 == 0 %} block-left {% endif %}
+                {% if row % 3 == 0 %} block-top {% endif %}">
         {% endfor %}
     {% endfor %}
 </div>
+    <button type="submit">solve</button>  
+</form>
 
-    <button type="submit">solve</button>
-
+<form action="/" method="GET">
+    <button type= "submit"> reset</button>
 </form>
 
 </body>
